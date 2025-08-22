@@ -8,7 +8,7 @@ const projects = [
     description:
       "A point-of-sale system designed and implemented during my internship at Arsene Software Solutions. Features include sales processing, inventory tracking, employee time tracking, and receipt generation with offline-online support.",
     color: "#4a90e2",
-    githubLink: "https://github.com/Gribdd/Ebisx.POS", // add your actual repo link if available
+    githubLink: "https://github.com/Gribdd/Ebisx.POS.Api", // add your actual repo link if available
     techStack: ["C#", "MySQL", "SQLite", "Docker"],
     frameworks: [".NET MAUI", "ASP.NET Web API"],
   },
