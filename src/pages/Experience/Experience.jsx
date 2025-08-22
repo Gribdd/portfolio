@@ -55,28 +55,13 @@ const ExperienceSection = () => {
   const experiences = [
     {
       icon: Network,
-      title: "WordPress Developer",
-      company: "Fiverr",
-      period: "2019 - 2020",
+      title: "Software Developer Intern",
+      company: "Arsene Software Solutions",
+      period: "Feb 2025 - May 2025",
       description:
-        "Worked on developing and customizing WordPress websites for clients globally.",
-    },
-    {
-      icon: Layers,
-      title: "Junior Frontend Developer",
-      company: "Sera Programmer",
-      period: "2021 - 2023",
-      description:
-        "Assisted in building and optimizing user interfaces with a focus on responsive and interactive designs.",
-    },
-    {
-      icon: Code2,
-      title: "JavaScript Developer",
-      company: "OlovJS (Sera Programmer)",
-      period: "2023 - Present",
-      description:
-        "Contributed to developing JavaScript libraries and enhancing framework functionalities.",
-    },
+      `Developed Ebisx, a point-of-sale (POS) application built with .NET MAUI, 
+      ASP.NET Core Web API, MySQL, and SQLite.`
+    }
   ];
 
   return (
@@ -119,7 +104,7 @@ const ExperienceSection = () => {
           </div>
 
           {/* Experience grid with improved layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
             {experiences.map((exp, index) => (
               <ExperienceCard key={index} {...exp} />
             ))}
