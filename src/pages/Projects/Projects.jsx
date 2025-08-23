@@ -44,7 +44,7 @@ const projects = [
     description:
       "A mobile music streaming app with authentication, playlist management, real-time playback, and admin features. Data stored locally using JSON.",
     color: "#ed649e",
-    githubLink: "https://github.com/seraprogrammer/beatsync", // replace with actual repo if available
+    githubLink: "https://github.com/Gribdd/beatsync", 
     techStack: ["C#", "JSON"],
     frameworks: [".NET MAUI"],
   },
