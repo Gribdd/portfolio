@@ -3,12 +3,11 @@ import Prism from "prismjs";
 import "prismjs/components/prism-javascript";
 import "@/assets/css/tomorrow.css";
 import Meteors from "@/components/ui/meteors";
-import PortfolioPage from "@/pages/About/About";
 import SparklesText from "@/components/ui/sparkles-text";
 import { FlipWords } from "@/components/ui/flip-words";
-import { MapPin} from "lucide-react";
+import { MapPin } from "lucide-react";
 
-import {Mail, Github, Linkedin} from "lucide-react"
+import { Mail, Github, Linkedin } from "lucide-react";
 
 // Grid Background - Replacing the HexagonBackground
 const GridBackground = () => {
@@ -51,10 +50,10 @@ export default function Hero() {
   ];
 
   const [code] = useState(`
-const profile = {
+    const profile = {
     name: 'Allen Joseph Lozada',
     title: '.NET Developer | Software Developer',
-    skills: [
+    skills: [   
         'C#', 'Python', 'MySQL', 'SQLite',
         'SQL Server', 'Flask', '.NET', 'ASP.NET',
         'Git', 'GitHub', 'Linux'
@@ -147,8 +146,7 @@ const profile = {
 
           {/* Or keep the original backgrounds if you prefer */}
           {/* <HexagonBackground /> */}
-          {/* <AnimatedGrid /> */}
-          {/* <DotBackground /> */}
+          {/* <DotBackground />
 
           {/* Meteors Effect */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -190,7 +188,7 @@ const profile = {
                     I&apos;m
                     <span className="typing-effect gradient-text">
                       {" "}
-                      Allen  Lozada
+                      Allen Lozada
                     </span>
                   </span>
                 </h1>
@@ -216,11 +214,11 @@ const profile = {
 
               {/* Description */}
 
-              
               <div className="relative mb-8 sm:mb-10 max-w-2xl">
                 <p className="text-base sm:text-xl text-gray-300/95 leading-relaxed">
-                  I am 23 year-old Computer Engineer, and I have been programming for more than 5 years.
-                  I've been building applications with .NET and Python.
+                  I am 23 year-old Computer Engineer, and I have been
+                  programming for more than 5 years. I've been building
+                  applications with .NET and Python.
                 </p>
               </div>
 
@@ -257,14 +255,12 @@ const profile = {
                     <Linkedin className="w-6 h-6 text-black-400" />
                   </a>
                 </div>
-               
-                
 
                 {/* Download Resume */}
                 <a
                   href="/Allen-Lozada-Resume.pdf"
                   className="group relative inline-flex items-center justify-center gap-3 p-0.5 rounded-xl bg-gradient-to-r from-gray-800 to-gray-700 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_2rem_-0.5rem_#60A5FA]"
-                  target="_blank" 
+                  target="_blank"
                   rel="noopener noreferrer"
                 >
                   <span className="block w-full px-6 sm:px-8 py-3 sm:py-4 rounded-[11px] bg-gray-900 border border-gray-700/50 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-gray-800 group-hover:to-gray-700">
@@ -279,7 +275,8 @@ const profile = {
               {/* Floating badges */}
               <div className="hidden lg:block absolute left-[5.5rem] top-[2.3rem] animate-float-slow">
                 <div className="px-4 py-2 rounded-lg bg-purple-500/10 backdrop-blur-sm border border-purple-500/20 text-purple-400">
-                  <i className="fas fa-wand-magic-sparkles"></i>&nbsp;&nbsp;Maintanable
+                  <i className="fas fa-wand-magic-sparkles"></i>
+                  &nbsp;&nbsp;Maintanable
                 </div>
               </div>
               <div className="hidden lg:block absolute right-10 top-20 animate-float">
@@ -289,7 +286,8 @@ const profile = {
               </div>
               <div className="hidden lg:block absolute top-[17rem] left-[70%] transform -translate-x-1/2 animate-float">
                 <div className="px-4 py-2 rounded-lg bg-amber-500/10 backdrop-blur-sm border border-amber-500/20 text-amber-400">
-                  <i className="fas fa-lightbulb"></i>&nbsp;&nbsp;Scalable applications
+                  <i className="fas fa-lightbulb"></i>&nbsp;&nbsp;Scalable
+                  applications
                 </div>
               </div>
             </div>

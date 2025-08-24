@@ -6,33 +6,40 @@ import {
   FaCode,
   FaBars,
 } from "react-icons/fa";
-import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
-  const location = useLocation();
-  const [activeLink, setActiveLink] = useState(() => {
-    const path = location.pathname.substring(1) || "home";
-    return path;
-  });
+  const [activeLink, setActiveLink] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Update active link on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll("section");
+      let current = "home";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 80; // header offset
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+      setActiveLink(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    { id: "home", icon: FaHome, text: "Home", path: "/" },
-    { id: "skills", icon: FaCode, text: "Skills", path: "/skills" },
-    {
-      id: "experience",
-      icon: FaBriefcase,
-      text: "Experience",
-      path: "/experience",
-    },
-    { id: "projects", icon: FaLaptopCode, text: "Projects", path: "/projects" },
+    { id: "hero", icon: FaHome, text: "Home" },
+    { id: "skills", icon: FaCode, text: "Skills and Experience" },
+    { id: "projects", icon: FaLaptopCode, text: "Projects" },
   ];
 
   return (
@@ -42,8 +49,10 @@ export default function Header() {
           <nav className="bg-gray-900/90 backdrop-blur-md md:rounded-full px-4 md:px-6 py-2.5">
             {/* Mobile Menu Button */}
             <div className="flex justify-between items-center md:hidden px-2">
-              <Link to="/" className="text-white font-bold">Portfolio</Link>
-              <button 
+              <a href="#hero" className="text-white font-bold">
+                Portfolio
+              </a>
+              <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-white p-2"
               >
@@ -52,12 +61,12 @@ export default function Header() {
             </div>
 
             {/* Navigation Links */}
-            <div className={`${isMenuOpen ? 'block' : 'hidden'} md:block`}>
+            <div className={`${isMenuOpen ? "block" : "hidden"} md:block`}>
               <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-1 lg:gap-2 py-4 md:py-0">
-                {navLinks.map(({ id, icon: Icon, text, path }) => (
-                  <Link
+                {navLinks.map(({ id, icon: Icon, text }) => (
+                  <a
                     key={id}
-                    to={path}
+                    href={`#${id}`}
                     onClick={() => {
                       setActiveLink(id);
                       setIsMenuOpen(false);
@@ -78,7 +87,7 @@ export default function Header() {
                       }`}
                     />
                     <span className="inline">{text}</span>
-                  </Link>
+                  </a>
                 ))}
               </div>
             </div>
@@ -98,6 +107,10 @@ export default function Header() {
         .animate-gradient-x {
           animation: gradient-x 3s linear infinite;
           background-size: 200% 200%;
+        }
+
+        html {
+          scroll-behavior: smooth;
         }
       `}</style>
     </header>

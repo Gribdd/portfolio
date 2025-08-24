@@ -1,31 +1,33 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import IconCloudDemo from "@/components/globe";
-import { Code2, Layers, Database, Layout, Cpu, Cloud } from "lucide-react";
 import {
   FaGithub,
   FaPython,
   FaDocker,
   FaGitAlt,
-  FaLinux,
   FaFigma,
-  FaCss3,
-  FaHtml5,
-  FaJs,
 } from "react-icons/fa";
 import {
   SiDotnet,
   SiVercel,
   SiFlask,
   SiSqlite,
-  SiPostman
+  SiPostman,
 } from "react-icons/si";
 import { TbBrandVscode, TbBrandCSharp, TbBrandMysql } from "react-icons/tb";
 import { DiMsqlServer } from "react-icons/di";
-import { BsGrid1X2 } from "react-icons/bs";
-import { MdAnimation } from "react-icons/md";
+import {
+  Code2,
+  Layers,
+  Database,
+  Layout,
+  Cpu,
+  Cloud,
+  Network,
+} from "lucide-react";
 
+// ---------------- SkillCard ----------------
 const SkillCard = ({ icon: Icon, title, skills, color }) => (
   <Card className="group relative overflow-hidden bg-gray-900/80 border-gray-700 hover:scale-[1.02] transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20">
     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(100,100,255,0.1)] to-transparent group-hover:via-[rgba(100,100,255,0.2)] animate-shimmer"></div>
@@ -34,7 +36,7 @@ const SkillCard = ({ icon: Icon, title, skills, color }) => (
         <div
           className={`p-3 rounded-xl bg-gray-800/50 ${color} group-hover:scale-110 transition-transform duration-300`}
         >
-          <Icon className="w-8 h-8" />
+          <Icon className="w-15 h-15" />
         </div>
         <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
           {title}
@@ -58,35 +60,57 @@ const SkillCard = ({ icon: Icon, title, skills, color }) => (
   </Card>
 );
 
-const SkillsSection = () => {
+// ---------------- ExperienceCard ----------------
+const ExperienceCard = ({
+  title,
+  company,
+  period,
+  description,
+  icon: Icon,
+}) => (
+  <div className="group relative overflow-hidden transform hover:-translate-y-2 transition-all duration-300">
+    <div className="absolute inset-0 backdrop-blur-lg bg-white/5 rounded-lg" />
+    <div className="absolute -inset-[2px] bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-lg opacity-0 group-hover:opacity-100 animate-gradient-xy transition-all duration-500" />
+    <div className="relative bg-gray-900/90 rounded-lg p-8 h-full border border-gray-800/50 shadow-xl backdrop-blur-xl">
+      <div className="relative mb-6">
+        <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500 to-blue-500 opacity-25 rounded-full blur-xl group-hover:opacity-75 animate-pulse transition-all duration-500" />
+        <Icon className="w-12 h-12 text-cyan-400 relative z-10 transform group-hover:rotate-12 transition-transform duration-300" />
+      </div>
+      <div className="space-y-3">
+        <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+          {title}
+        </h3>
+        <div className="flex justify-between items-center text-gray-300">
+          <span className="font-semibold text-blue-400">{company}</span>
+          <span className="text-sm font-mono bg-blue-500/10 px-3 py-1 rounded-full">
+            {period}
+          </span>
+        </div>
+        <p className="text-gray-300 border-l-4 border-blue-500/50 pl-4 mt-4 leading-relaxed">
+          {description}
+        </p>
+      </div>
+    </div>
+  </div>
+);
+
+// ---------------- Main Section ----------------
+const SkillsAndExperienceSection = () => {
   const skillCategories = [
     {
-      icon: Code2,
-      title: "Programming Languages",
       color: "text-blue-400",
       skills: [
-        { name: "C#", icon: <TbBrandCSharp className="w-4 h-4 text-[#8b449c]" /> },
+        {
+          name: "C#",
+          icon: <TbBrandCSharp className="w-4 h-4 text-[#8b449c]" />,
+        },
         {
           name: "Python",
-          icon: <FaPython className="w-4 h- text-[#3776AB]" />,
-        },
-        {
-          name: "HTML",
-          icon: <FaHtml5 className="w-4 h- text-orange-500" />,
-        },
-        {
-          name: "CSS",
-          icon: <FaCss3 className="w-4 h- text-[#3776AB]" />,
-        },
-        {
-          name: "JavaScript",
-          icon: <FaJs className="w-4 h- text-yellow-400" />,
+          icon: <FaPython className="w-4 h-4 text-[#3776AB]" />,
         },
       ],
     },
     {
-      icon: Database,
-      title: "Databases",
       color: "text-green-400",
       skills: [
         {
@@ -95,7 +119,7 @@ const SkillsSection = () => {
         },
         {
           name: "SQL Server",
-          icon: <DiMsqlServer  className="w-4 h-4 text-[#F24E1E]" />,
+          icon: <DiMsqlServer className="w-4 h-4 text-[#F24E1E]" />,
         },
         {
           name: "SQLite",
@@ -109,18 +133,6 @@ const SkillsSection = () => {
       color: "text-purple-400",
       skills: [
         { name: "Figma", icon: <FaFigma className="w-4 h-4 text-[#F24E1E]" /> },
-        {
-          name: "Responsive Design",
-          icon: <Layout className="w-4 h-4 text-[#38B2AC]" />,
-        },
-        {
-          name: "Wireframing",
-          icon: <BsGrid1X2 className="w-4 h-4 text-[#9CA3AF]" />,
-        },
-        {
-          name: "Prototyping",
-          icon: <MdAnimation className="w-4 h-4 text-[#F59E0B]" />,
-        },
       ],
     },
     {
@@ -133,8 +145,10 @@ const SkillsSection = () => {
           icon: <FaDocker className="w-4 h-4 text-[#2496ED]" />,
         },
         { name: "Git", icon: <FaGitAlt className="w-4 h-4 text-[#F05032]" /> },
-        { name: "GitHub", icon: <FaGithub className="w-4 h-4 text-[#fdfdfd]" /> },
-        { name: "Linux", icon: <FaLinux className="w-4 h-4 text-[#FCC624]" /> },
+        {
+          name: "GitHub",
+          icon: <FaGithub className="w-4 h-4 text-[#fdfdfd]" />,
+        },
       ],
     },
     {
@@ -142,10 +156,6 @@ const SkillsSection = () => {
       title: "Tools & Technologies",
       color: "text-pink-400",
       skills: [
-        {
-          name: "VS Code",
-          icon: <TbBrandVscode className="w-4 h-4 text-[#007ACC]" />,
-        },
         { name: "Vercel", icon: <SiVercel className="w-4 h-4 text-white" /> },
         {
           name: "Postman",
@@ -153,71 +163,69 @@ const SkillsSection = () => {
         },
       ],
     },
-
     {
       icon: Layers,
       title: "Frameworks & Libraries",
       color: "text-green-400",
       skills: [
-        // Frameworks
-        {
-          name: ".NET",
-          icon: <SiDotnet  className="w-4 h-4 text-[#512BD4]" />,
-        },
+        { name: ".NET", icon: <SiDotnet className="w-4 h-4 text-[#512BD4]" /> },
         {
           name: ".NET MAUI",
-          icon: <SiDotnet  className="w-4 h-4 text-[#512BD4]" />, // no dedicated MAUI icon
+          icon: <SiDotnet className="w-4 h-4 text-[#512BD4]" />,
         },
         {
           name: "ASP.NET Web API",
-          icon: <SiDotnet  className="w-4 h-4 text-[#512BD4]" />, // reuse .NET icon
+          icon: <SiDotnet className="w-4 h-4 text-[#512BD4]" />,
         },
-        {
-          name: "Flask",
-          icon: <SiFlask className="w-4 h-4 text-white" />,
-        },
-
-        // Libraries
-        {
-          name: "Entity Framework Core",
-          icon: <TbBrandCSharp className="w-4 h-4 text-[#239120]" />, // EFCore doesn’t have its own icon
-        },
-        {
-          name: "FluentValidation",
-          icon: <TbBrandCSharp className="w-4 h-4 text-[#178600]" />, // placeholder
-        },
-        {
-          name: "AutoMapper",
-          icon: <TbBrandCSharp className="w-4 h-4 text-[#178600]" />, // placeholder
-        },
-        {
-          name: "Bogus Faker",
-          icon: <TbBrandCSharp className="w-4 h-4 text-[#239120]" />, // placeholder
-        },
+        { name: "Flask", icon: <SiFlask className="w-4 h-4 text-white" /> },
       ],
     },
-
-    
   ];
 
+  const experience = {
+    icon: Network,
+    title: "Software Developer Intern",
+    company: "Arsene Software Solutions",
+    period: "Feb 2025 - May 2025",
+    description: `Developed Ebisx, a point-of-sale (POS) application built with .NET MAUI, 
+    ASP.NET Core Web API, MySQL, and SQLite.`,
+  };
+
   return (
-    <main className="pt-15 lg:pt-0 text-white min-h-screen bg-[#04081A] relative">
-      {/* Grid Background */}
+    <main className="pt-20 text-white bg-[rgb(4,8,26)] relative">
+      {/* Background grid */}
       <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
 
-      <section className="container mx-auto px-4 py-11 relative z-10 min-h-screen flex items-center">
-        <div className="mx-auto px-4 py-11 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skillCategories.map((category, index) => (
-            <SkillCard
-              key={index}
-              icon={category.icon}
-              title={category.title}
-              skills={category.skills}
-              color={category.color}
-            />
-          ))}
+      <section className="container mx-auto px-6 py-16 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 ">
+          {/* Left column: Skills */}
+          <div className=" lg:col-span-2 flex flex-col h-full  ">
+            <h2 className="text-3xl font-bold mb-6">Current Technologies</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 flex-1">
+              {skillCategories.flatMap((category) =>
+                category.skills.map((skill, index) => (
+                  <div
+                    key={skill.name + index}
+                    className="flex items-center gap-2 bg-gray-900/80 border border-gray-700 
+                            rounded-lg px-3 py-2 hover:bg-gray-800 transition-all 
+                            hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20"
+                  >
+                    {skill.icon}
+                    <span className="text-sm font-medium">{skill.name}</span>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+
+          {/* Right column: Experience */}
+          <div className="flex flex-col  ">
+            <h2 className="text-3xl font-bold mb-6">Experience</h2>
+            <ExperienceCard {...experience} />
+          </div>
         </div>
       </section>
+
       <style jsx>{`
         @keyframes shimmer {
           0% {
@@ -248,4 +256,4 @@ const SkillsSection = () => {
   );
 };
 
-export default SkillsSection;
+export default SkillsAndExperienceSection;
