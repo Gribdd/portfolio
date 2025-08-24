@@ -53,7 +53,7 @@ const projects = [
     description:
       "A mobile music streaming app with authentication, playlist management, real-time playback, and admin features. Data was stored locally in JSON.",
     color: "#ed649e",
-    githubLink: "https://github.com/Gribdd/MovieTicketingSystem",
+    githubLink: "https://github.com/Gribdd/beatsync",
     image: "/images/beatsync.png",
     technologies: ["C#", ".NET MAUI", "JSON"],
   },
