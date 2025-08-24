@@ -192,11 +192,11 @@ const SkillsAndExperienceSection = () => {
   };
 
   return (
-    <main className="pt-20 text-white bg-[rgb(4,8,26)] relative">
+    <main className="pt-20  text-white bg-[rgb(4,8,26)] relative">
       {/* Background grid */}
       <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
 
-      <section className="container mx-auto px-6 py-16 relative z-10">
+      <section className="container p-10 px-4 sm:px-6 lg:px-8 py-10 md:py-16 lg:py-0 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 ">
           {/* Left column: Skills */}
           <div className=" lg:col-span-2 flex flex-col h-full  ">
