@@ -197,7 +197,7 @@ export default function Hero() {
 
               {/* Location */}
               <div className="flex items-center pl-2 gap-2 text-2xl sm:text-2xl mb-4 m-2">
-                <MapPin className="w-5 h-5" />
+                <MapPin className="w-8 h-8 text-red-500" />
                 <span>Cebu City, Philippines</span>
               </div>
 
