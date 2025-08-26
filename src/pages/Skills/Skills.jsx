@@ -15,12 +15,10 @@ import {
   SiSqlite,
   SiPostman,
 } from "react-icons/si";
-import { TbBrandVscode, TbBrandCSharp, TbBrandMysql } from "react-icons/tb";
+import {  TbBrandCSharp, TbBrandMysql } from "react-icons/tb";
 import { DiMsqlServer } from "react-icons/di";
 import {
-  Code2,
   Layers,
-  Database,
   Layout,
   Cpu,
   Cloud,
@@ -192,14 +190,14 @@ const SkillsAndExperienceSection = () => {
   };
 
   return (
-    <main className="pt-20  text-white bg-[rgb(4,8,26)] relative">
+    <main className="pt-20 text-white bg-[rgb(4,8,26)] relative">
       {/* Background grid */}
       <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
 
-      <section className="container p-10 px-4 sm:px-6 lg:px-8 py-10 md:py-16 lg:py-0 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 ">
+      <section className="w-full max-w-8xl m-auto p-10 px-4 sm:px-6 lg:px-8 py-10 md:py-16 lg:py-0 relative z-10">
+        <div className="grid grid-cols-1 py-5 lg:grid-cols-3 gap-8 ">
           {/* Left column: Skills */}
-          <div className=" lg:col-span-2 flex flex-col h-full  ">
+          <div className="lg:col-span-2 flex flex-col h-full  ">
             <h2 className="text-3xl font-bold mb-6">Current Technologies</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 flex-1">
               {skillCategories.flatMap((category) =>
@@ -219,7 +217,7 @@ const SkillsAndExperienceSection = () => {
           </div>
 
           {/* Right column: Experience */}
-          <div className="flex flex-col  ">
+          <div className="lg:col-span-1 lex flex-col">
             <h2 className="text-3xl font-bold mb-6">Experience</h2>
             <ExperienceCard {...experience} />
           </div>
